@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Jasmine.POS.SQL</Name>
+    <Name>Jasmine.POS.DB</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{c013beb1-f376-477c-a234-e561b26db78e}</ProjectGuid>
@@ -12,8 +12,8 @@
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>Jasmine.POS.SQL</RootNamespace>
-    <AssemblyName>Jasmine.POS.SQL</AssemblyName>
+    <RootNamespace>Jasmine.POS.DB</RootNamespace>
+    <AssemblyName>Jasmine.POS.DB</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -23,6 +23,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DacApplicationName>Jasmine.POS.DB</DacApplicationName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -46,6 +47,7 @@
     <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <SqlTargetName>Jasmine.POS</SqlTargetName>
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
@@ -61,8 +63,18 @@
   <ItemGroup>
     <Build Include="User.sql" />
     <Build Include="Role.sql" />
+    <Build Include="Product.sql" />
+    <Build Include="ProductCategory.sql" />
+    <Build Include="Order.sql" />
+    <Build Include="OrderType.sql" />
+    <Build Include="OrderDetails.sql" />
+    <Build Include="Discount.sql" />
+    <Build Include="PaymentMethod.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Jasmine.POS.SQL.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="1_PostDeployment.sql" />
   </ItemGroup>
 </Project>

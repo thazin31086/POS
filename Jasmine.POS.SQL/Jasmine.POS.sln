@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Jasmine.POS.SQL", "Jasmine.POS.SQL\Jasmine.POS.SQL.sqlproj", "{C013BEB1-F376-477C-A234-E561B26DB78E}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Jasmine.POS.DB", "Jasmine.POS.SQL\Jasmine.POS.DB.sqlproj", "{C013BEB1-F376-477C-A234-E561B26DB78E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
