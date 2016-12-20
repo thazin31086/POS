@@ -20,7 +20,8 @@ namespace Jasmine.POS.Data.Repository
             List<UserModel> usersmodel = new List<UserModel>();
             try
             {
-                var _users = _POSDBContext.Users.ToList();
+                var _results = _POSDBContext.Users;
+                var _users = _results.ToList();
                 if (_users != null)
                 {
                     usersmodel = _users.UsersToUsersModelMapper();

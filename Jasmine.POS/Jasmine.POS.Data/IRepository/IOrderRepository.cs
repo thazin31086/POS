@@ -6,7 +6,7 @@ namespace Jasmine.POS.Data.IRepository
     public interface IOrderRepository
     {
         IList<OrderModel> GetAllOrders();
-        OrderModel GetOrderByOrderId();
+        OrderModel GetOrderByOrderId(int OrderId);
 
         OperationStatus Save(OrderModel ordermodel);
 
