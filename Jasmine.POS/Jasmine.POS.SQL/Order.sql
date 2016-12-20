@@ -3,7 +3,7 @@
 	[OrderID] INT NOT NULL PRIMARY KEY, 
     [Customer Name] VARCHAR(250) NULL, 
     [OrderTypeID] INT NULL, 
-    [CreatedDate ] DATETIME NULL, 
+    [CreatedDate] DATETIME NULL, 
     [BookingDate] DATETIME NULL, 
     [DiscountID] INT NULL, 
 	[PaymentMethodID] INT NULL, 

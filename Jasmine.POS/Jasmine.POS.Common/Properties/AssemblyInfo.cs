@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Jasmine.POSDBContext.Data")]
+[assembly: AssemblyTitle("Jasmine.POS.Common")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Jasmine.POSDBContext.Data")]
+[assembly: AssemblyProduct("Jasmine.POS.Common")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4f4e726f-e633-45b8-a5f3-60ca98ce0a22")]
+[assembly: Guid("5c33cfb6-a85a-45b6-8e55-be813c306f4d")]
 
 // Version information for an assembly consists of the following four values:
 //
