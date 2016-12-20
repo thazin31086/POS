@@ -53,22 +53,25 @@
   <ItemGroup>
     <Compile Include="C__RefactorLog.cs" />
     <Compile Include="Entities\Discount.cs" />
+    <Compile Include="EntityModelMapper\OrderMapper.cs" />
+    <Compile Include="EntityModelMapper\ProductMapper.cs" />
+    <Compile Include="IRepository\IOrderRepository.cs" />
+    <Compile Include="IRepository\IProductRepository.cs" />
+    <Compile Include="IRepository\IUserRepository.cs" />
+    <Compile Include="EntityModelMapper\UserMapper.cs" />
+    <Compile Include="JasminePOSDBContext.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\OrderDetail.cs" />
     <Compile Include="Entities\OrderType.cs" />
     <Compile Include="Entities\PaymentMethod.cs" />
-    <Compile Include="EntityModelMapper\ProductMapper.cs" />
-    <Compile Include="IRepository\IProductRepository.cs" />
-    <Compile Include="IRepository\IUserRepository.cs" />
-    <Compile Include="EntityModelMapper\UserMapper.cs" />
-    <Compile Include="POSDBContext.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entities\Role.cs" />
-    <Compile Include="Entities\User.cs" />
+    <Compile Include="Repository\OrderRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jasmine.POS.Common\Jasmine.POS.Common.csproj">

@@ -9,8 +9,8 @@ namespace Jasmine.POS.Data.Repository
 {
     public class UserRepository : IUserRepository
     {
-        private readonly POSDBContext _POSDBContext;
-        public UserRepository(POSDBContext POSDBContext)
+        private readonly JasminePOSDBContext _POSDBContext;
+        public UserRepository(JasminePOSDBContext POSDBContext)
         {
             _POSDBContext = POSDBContext;
         }

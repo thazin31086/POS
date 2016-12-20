@@ -5,9 +5,9 @@ namespace Jasmine.POS.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class POSDBContext : DbContext
+    public partial class JasminePOSDBContext : DbContext
     {
-        public POSDBContext()
+        public JasminePOSDBContext()
             : base("name=JasminePOSDB")
         {
         }

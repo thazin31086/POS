@@ -18,7 +18,6 @@ namespace Jasmine.POS.Data
 
         public int? OrderTypeID { get; set; }
 
-        [Column("CreatedDate")]
         public DateTime? CreatedDate { get; set; }
 
         public DateTime? BookingDate { get; set; }
