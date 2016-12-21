@@ -31,7 +31,7 @@ namespace Jasmine.POS.WEBAPI.Controllers
                 LastName = "Aung",
             };
 
-            OperationStatus result = services.userservice.Save(user);
+            OperationStatus result = services.userservice.SaveUser(user);
             if (result.Success)
             {
                 var users = services.userservice.GetAllUser();

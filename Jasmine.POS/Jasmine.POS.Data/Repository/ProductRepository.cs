@@ -67,6 +67,7 @@ namespace Jasmine.POS.Data.Repository
             catch (Exception ex)
             {
                 result.Message = ex.ToString();
+                result.InnerExceptionMessage = ex.InnerException.ToString();
             }
             return result; 
         }
@@ -86,6 +87,7 @@ namespace Jasmine.POS.Data.Repository
             catch (Exception ex)
             {
                 result.Message = ex.Message;
+                result.InnerExceptionMessage = ex.InnerException.ToString();
                 //ToDo: Log error
             }
 

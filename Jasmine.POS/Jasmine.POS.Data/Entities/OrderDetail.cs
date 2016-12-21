@@ -8,7 +8,7 @@ namespace Jasmine.POS.Data
 
     public partial class OrderDetail
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderDetailID { get; set; }
 
         public int? OrderID { get; set; }

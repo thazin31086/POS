@@ -21,11 +21,11 @@ namespace Jasmine.POS.Services
         {
             return userrepo.GetById(userId);
         }
-        public OperationStatus Save(UserModel user)
+        public OperationStatus SaveUser(UserModel user)
         {
             return userrepo.Save(user);
         }
-        public OperationStatus Delete(int userId)
+        public OperationStatus DeleteUser(int userId)
         {
             return userrepo.Delete(userId);
         }

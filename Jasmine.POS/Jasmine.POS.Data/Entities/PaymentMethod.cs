@@ -15,7 +15,7 @@ namespace Jasmine.POS.Data
             Orders = new HashSet<Order>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PaymentMethodID { get; set; }
 
         [StringLength(50)]

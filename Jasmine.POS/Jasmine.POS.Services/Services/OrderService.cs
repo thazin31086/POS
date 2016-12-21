@@ -23,12 +23,12 @@ namespace Jasmine.POS.Services
            return orderrepo.GetById(OrderId);
         }
 
-        public OperationStatus Save(OrderModel ordermodel)
+        public OperationStatus SaveOrder(OrderModel ordermodel)
         {
            return orderrepo.Save(ordermodel);
         }
 
-        public OperationStatus Delete(int orderId)
+        public OperationStatus DeleteOrder(int orderId)
         {
            return orderrepo.Delete(orderId);
         }

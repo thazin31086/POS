@@ -15,7 +15,7 @@ namespace Jasmine.POS.Data
             Products = new HashSet<Product>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProductCategoryID { get; set; }
 
         [StringLength(500)]

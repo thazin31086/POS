@@ -9,7 +9,7 @@ namespace Jasmine.POS.Data
     [Table("Order")]
     public partial class Order
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderID { get; set; }
 
         [Column("Customer Name")]

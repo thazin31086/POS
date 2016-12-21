@@ -25,12 +25,12 @@ namespace Jasmine.POS.Services
         {
             return productrepo.GetByCategoryID(categoryId);
         }
-        public OperationStatus Save(ProductModel productmodel)
+        public OperationStatus SaveProduct(ProductModel productmodel)
         {
             return productrepo.Save(productmodel);
         }
 
-        public OperationStatus Delete(int productId)
+        public OperationStatus DeleteProduct(int productId)
         {
             return productrepo.Delete(productId);
         }

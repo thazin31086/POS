@@ -15,7 +15,7 @@ namespace Jasmine.POS.Data
             Users = new HashSet<User>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RoleID { get; set; }
 
         [StringLength(300)]
