@@ -1,20 +1,20 @@
 ﻿using Jasmine.POS.Common.Models;
 using Jasmine.POS.Data.EntityModelMapper;
-using Jasmine.POS.Data.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Jasmine.POS.Data.Repository
 {
-    public class OrderRepository : IOrderRepository
+    public class OrderRepository
     {
         private readonly JasminePOSDBContext _POSDBContext;       
-        public OrderRepository(JasminePOSDBContext POSDBContext)
+        public OrderRepository()
         {
-            _POSDBContext = POSDBContext;
+            _POSDBContext = new JasminePOSDBContext();
 
-        }
+        }       
+
         public IList<OrderModel> GetAllOrders()
         {
             List<OrderModel> ordermodel = new List<OrderModel>();
@@ -26,7 +26,7 @@ namespace Jasmine.POS.Data.Repository
                     ordermodel = _orders.OrdersToOrdersModelMapper();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //ToDo : Log error
             }
@@ -45,7 +45,7 @@ namespace Jasmine.POS.Data.Repository
                     ordermodel = _order.OrderToOrderModelMapper();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //ToDo:: Log error
             }

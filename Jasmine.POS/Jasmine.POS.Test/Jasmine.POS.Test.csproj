@@ -62,10 +62,13 @@
       <Project>{5c33cfb6-a85a-45b6-8e55-be813c306f4d}</Project>
       <Name>Jasmine.POS.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Jasmine.POS.Data\Jasmine.POS.Data.csproj">
-      <Project>{4F4E726F-E633-45B8-A5F3-60CA98CE0A22}</Project>
-      <Name>Jasmine.POS.Data</Name>
+    <ProjectReference Include="..\Jasmine.POS.Services\Jasmine.POS.Services.csproj">
+      <Project>{17c7625b-21ab-42d7-ad4c-d44dc31ca30f}</Project>
+      <Name>Jasmine.POS.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -40,6 +40,11 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Abstractions, Version=2.0.2.26, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.Abstractions.2.0.2.26\lib\net45\System.Configuration.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -55,9 +60,6 @@
     <Compile Include="Entities\Discount.cs" />
     <Compile Include="EntityModelMapper\OrderMapper.cs" />
     <Compile Include="EntityModelMapper\ProductMapper.cs" />
-    <Compile Include="IRepository\IOrderRepository.cs" />
-    <Compile Include="IRepository\IProductRepository.cs" />
-    <Compile Include="IRepository\IUserRepository.cs" />
     <Compile Include="EntityModelMapper\UserMapper.cs" />
     <Compile Include="JasminePOSDBContext.cs" />
     <Compile Include="Entities\Order.cs" />

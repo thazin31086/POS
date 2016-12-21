@@ -1,18 +1,17 @@
 ﻿using Jasmine.POS.Common.Models;
 using Jasmine.POS.Data.EntityModelMapper;
-using Jasmine.POS.Data.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Jasmine.POS.Data.Repository
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository 
     {
         private readonly JasminePOSDBContext _POSDBContext;
-        public UserRepository(JasminePOSDBContext POSDBContext)
+        public UserRepository()
         {
-            _POSDBContext = POSDBContext;
+            _POSDBContext = new JasminePOSDBContext();
         }
 
         public IList<UserModel> GetAllUser()
@@ -27,7 +26,7 @@ namespace Jasmine.POS.Data.Repository
                     usersmodel = _users.UsersToUsersModelMapper();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //ToDo: Log error   
             }
@@ -69,7 +68,7 @@ namespace Jasmine.POS.Data.Repository
                 if (usermodel == null)                
                     throw new Exception("Invalid Record");                                    
 
-                User user = usermodel.UserModelToUserMapper();
+                User user = usermodel.UserModelToUserMapper();                
                 _POSDBContext.Users.Add(user);
                 result.Success = true;
             }

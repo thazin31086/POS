@@ -1,11 +1,18 @@
 namespace Jasmine.POS.Data
 {
+    using System.Configuration;
     using System.Data.Entity;
-
     public partial class JasminePOSDBContext : DbContext
     {
+        public static string ConnectionStringName
+        {
+            get
+            {
+              return  ConfigurationManager.ConnectionStrings["JasminePOSDB"].ToString();
+            }
+        }
         public JasminePOSDBContext()
-            : base("name=JasminePOSDB")
+            : base(nameOrConnectionString : JasminePOSDBContext.ConnectionStringName)
         {
         }
 
@@ -22,66 +29,7 @@ namespace Jasmine.POS.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Discount>()
-                .Property(e => e.Description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Order>()
-                .Property(e => e.Customer_Name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<OrderType>()
-                .Property(e => e.Description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PaymentMethod>()
-                .Property(e => e.Description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Product>()
-                .Property(e => e.Description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ProductCategory>()
-                .Property(e => e.Description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ProductCategory>()
-                .HasMany(e => e.Products)
-                .WithRequired(e => e.ProductCategory)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Role>()
-                .Property(e => e.Description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .Property(e => e.UserName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .Property(e => e.Password)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .Property(e => e.FirstName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .Property(e => e.LastName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .Property(e => e.TFN)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .Property(e => e.mobile)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .Property(e => e.address)
-                .IsUnicode(false);
+           
         }
     }
 }

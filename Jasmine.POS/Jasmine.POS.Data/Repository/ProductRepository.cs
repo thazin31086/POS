@@ -1,22 +1,22 @@
 ﻿using Jasmine.POS.Common.Models;
 using Jasmine.POS.Data.EntityModelMapper;
-using Jasmine.POS.Data.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Jasmine.POS.Data.Repository
 {
-    public class ProductRepository : IProductRepository
+    public class ProductRepository
     {
-        private readonly JasminePOSDBContext _POSDBContext;
+        private readonly JasminePOSDBContext _POSDBContext;        
 
-        public ProductRepository(JasminePOSDBContext POSDBContext)
+        public ProductRepository()
         {
-            _POSDBContext = POSDBContext;
+            _POSDBContext = new JasminePOSDBContext();
         }
+
         public IList<ProductModel> GetAllProducts()
-        {
+        {           
             List<ProductModel> productsmodel = new List<ProductModel>();
             try
             {
@@ -26,7 +26,7 @@ namespace Jasmine.POS.Data.Repository
                     productsmodel = _products.ProductsToProductsModelMapper();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //ToDo: Log error   
             }
@@ -44,7 +44,7 @@ namespace Jasmine.POS.Data.Repository
                     productmodel = _product.ProductToProductModelMapper();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                //ToDo Log Error 
             }
@@ -63,7 +63,7 @@ namespace Jasmine.POS.Data.Repository
                     productsmodel = _products.ProductsToProductsModelMapper();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //ToDo Log Error 
             }
