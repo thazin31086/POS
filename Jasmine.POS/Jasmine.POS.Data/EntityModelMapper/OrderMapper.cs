@@ -42,13 +42,13 @@ namespace Jasmine.POS.Data.EntityModelMapper
                 OrderID = order.OrderID, 
                 Customer_Name = order.Customer_Name, 
                 OrderTypeID = order.OrderTypeID,
-                OrderType = order.OrderType.OrderTypeToOrderTypeModelMapper(), 
+                OrderType = order.OrderType != null ? order.OrderType.OrderTypeToOrderTypeModelMapper() : null, 
                 CreatedDate = order.CreatedDate, 
                 BookingDate = order.BookingDate, 
                 DiscountID = order.DiscountID, 
-                Discount = order.Discount.DiscountToDiscountModelMapper(),
+                Discount = order.Discount !=null ? order.Discount.DiscountToDiscountModelMapper() : null,
                 PaymentMethodID = order.PaymentMethodID, 
-                PaymentMethod = order.PaymentMethod.PaymentMethodToPaymentMethodModelMapper(),
+                PaymentMethod = order.PaymentMethod != null ? order.PaymentMethod.PaymentMethodToPaymentMethodModelMapper(): null,
                 Amount_Due = order.Amount_Due, 
                 Change_Due = order.Change_Due
             };
@@ -144,13 +144,13 @@ namespace Jasmine.POS.Data.EntityModelMapper
                 OrderID = ordermodel.OrderID,
                 Customer_Name = ordermodel.Customer_Name,
                 OrderTypeID = ordermodel.OrderTypeID,
-                OrderType = ordermodel.OrderType.OrderTypeModelToOrderTypeMapper(),
+                OrderType = ordermodel.OrderType != null ? ordermodel.OrderType.OrderTypeModelToOrderTypeMapper() :null,
                 CreatedDate = ordermodel.CreatedDate,
                 BookingDate = ordermodel.BookingDate,
                 DiscountID = ordermodel.DiscountID,
-                Discount = ordermodel.Discount.DiscountModelToDiscountMapper(),
+                Discount = ordermodel.Discount !=null ? ordermodel.Discount.DiscountModelToDiscountMapper() :null,
                 PaymentMethodID = ordermodel.PaymentMethodID,
-                PaymentMethod = ordermodel.PaymentMethod.PaymentMethodModelToPaymentMethodMapper(),
+                PaymentMethod = ordermodel.PaymentMethod != null ? ordermodel.PaymentMethod.PaymentMethodModelToPaymentMethodMapper(): null,
                 Amount_Due = ordermodel.Amount_Due,
                 Change_Due = ordermodel.Change_Due
             };
@@ -167,7 +167,7 @@ namespace Jasmine.POS.Data.EntityModelMapper
                 OrderID = ordermodeldetail.OrderID,
                 ProductID = ordermodeldetail.ProductID,
                 Qty = ordermodeldetail.Qty,
-                Product = ordermodeldetail.Product.ProductModelToProductMapper()
+                Product = ordermodeldetail.Product != null ? ordermodeldetail.Product.ProductModelToProductMapper() :null
             };
             return orderdetail;
         }

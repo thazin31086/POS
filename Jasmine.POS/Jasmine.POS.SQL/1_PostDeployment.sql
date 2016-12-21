@@ -13,52 +13,52 @@ Post-Deployment Script Template
 /* Add Role*/
 Insert Into [Role]
 values
-(1, 'Admin'), 
-(2, 'Manager'), 
-(3, 'Cashier') 
+('Admin'), 
+('Manager'), 
+('Cashier') 
 
 /* Add User */
 Insert Into dbo.[User]
 values
-(1, 'Admin','Aa12345', 'Owner', 'Name', 1, '', '', '' )
+('Admin','Aa12345', 'Owner', 'Name', 1, '', '', '' )
 
 
 /* Add Product Category*/
 Insert Into ProductCategory
 values
-(1, 'Coffee'), 
-(2, 'Main'), 
-(3, 'Sides'), 
-(4, 'Cold Drinks')
+('Coffee'), 
+('Main'), 
+('Sides'), 
+('Cold Drinks')
 
 /*Add Product*/
 Insert Into Product
 values 
-(1, 'Latte', 3.50, 1),
-(2, 'Cappuccino', 3.50, 1),
-(3, 'Hot Chocolate', 3.50, 1),
-(4, 'Long Black', 3.50, 1),
-(5, 'Big Breakfast', 11.50, 2),
-(6, 'Ceasar Salad', 9.50, 2),
-(7, 'Chicken Schnitzel', 9.50, 2),
-(8, 'Bacon and Egg Toast', 10.50, 2),
-(9, 'Chips', 4.50, 3),
-(10, 'Colesaw', 3.50, 3),
-(11, 'Gravy', 3.50, 3),
-(12, 'Coke', 3.50, 4),
-(13, 'Pepsi', 3.50, 4),
-(14, 'Orange Juice', 5.00, 4)
+('Latte', 3.50, 1),
+('Cappuccino', 3.50, 1),
+('Hot Chocolate', 3.50, 1),
+('Long Black', 3.50, 1),
+('Big Breakfast', 11.50, 2),
+('Ceasar Salad', 9.50, 2),
+('Chicken Schnitzel', 9.50, 2),
+('Bacon and Egg Toast', 10.50, 2),
+('Chips', 4.50, 3),
+('Colesaw', 3.50, 3),
+('Gravy', 3.50, 3),
+('Coke', 3.50, 4),
+('Pepsi', 3.50, 4),
+('Orange Juice', 5.00, 4)
 
 /*Add Discount*/
 Insert Into Discount
 values
-(1, '10 % Discount', 0.1),
-(2, '20 % Discount', 0.2),
-(3, '50 % Discount (Royal Discount)', 0.5)
+('10 % Discount', 0.1),
+('20 % Discount', 0.2),
+('50 % Discount (Royal Discount)', 0.5)
 
 /*Add Payment Method*/
 Insert Into PaymentMethod
 values
-(1, 'Cash'),
-(2, 'Master Card'),
-(3, 'Visa')
+('Cash'),
+('Master Card'),
+('Visa')

@@ -40,7 +40,7 @@ namespace Jasmine.POS.Data.EntityModelMapper
                 Description = product.Description,
                 SellingPrice = product.SellingPrice,
                 ProductCategoryID = product.ProductCategoryID,
-                ProductCategory = product.ProductCategory.ProductCategoryToProductCategoryModelMapper()
+                ProductCategory = product.ProductCategory != null? product.ProductCategory.ProductCategoryToProductCategoryModelMapper() : null
             };
 
             return productmodel;
@@ -98,7 +98,7 @@ namespace Jasmine.POS.Data.EntityModelMapper
                 Description = productmodel.Description,
                 SellingPrice = productmodel.SellingPrice,
                 ProductCategoryID = productmodel.ProductCategoryID,
-                ProductCategory = productmodel.ProductCategory.ProductCategoryModelToProductCategoryMapper()
+                ProductCategory = productmodel.ProductCategory !=null ? productmodel.ProductCategory.ProductCategoryModelToProductCategoryMapper() : null
             };
 
             return product;

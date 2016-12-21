@@ -38,6 +38,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\..\..\Exercise\ASP_NET_DataBinding\ASP_NET_DataBinding\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\Exercise\ASP_NET_DataBinding\ASP_NET_DataBinding\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -53,7 +56,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Repository\UserRepositoryTests.cs" />
+    <Compile Include="Services\ProductServicesTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

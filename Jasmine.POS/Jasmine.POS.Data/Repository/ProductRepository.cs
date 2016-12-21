@@ -6,16 +6,16 @@ using System.Linq;
 
 namespace Jasmine.POS.Data.Repository
 {
-    public class ProductRepository
+    public class ProductRepository :IRepository<ProductModel>
     {
         private readonly JasminePOSDBContext _POSDBContext;        
 
-        public ProductRepository()
+        public ProductRepository(JasminePOSDBContext POSDBContext)
         {
-            _POSDBContext = new JasminePOSDBContext();
+            _POSDBContext = POSDBContext ?? new JasminePOSDBContext();
         }
 
-        public IList<ProductModel> GetAllProducts()
+        public IList<ProductModel> GetAll()
         {           
             List<ProductModel> productsmodel = new List<ProductModel>();
             try
@@ -33,12 +33,12 @@ namespace Jasmine.POS.Data.Repository
             return productsmodel;
         }
 
-        public ProductModel GetProductsById(int productId)
+        public ProductModel GetById(int Id)
         {
             ProductModel productmodel = new ProductModel();
             try
             {
-                var _product = _POSDBContext.Products.SingleOrDefault(p => p.ProductID == productId);
+                var _product = _POSDBContext.Products.SingleOrDefault(p => p.ProductID == Id);
                 if (_product != null)
                 {
                     productmodel = _product.ProductToProductModelMapper();
@@ -51,34 +51,16 @@ namespace Jasmine.POS.Data.Repository
             return productmodel;
         }
 
-        public IList<ProductModel> GetProductsByCategoryID(int categoryId)
-        {
-            List<ProductModel> productsmodel = new List<ProductModel>();         
-            try
-            {
-                var _products = _POSDBContext.Products.
-                                 Where(p => p.ProductCategoryID == categoryId).ToList();
-                if (_products != null)
-                {
-                    productsmodel = _products.ProductsToProductsModelMapper();
-                }
-            }
-            catch (Exception)
-            {
-                //ToDo Log Error 
-            }
-            return productsmodel;
-        }
-
-        public OperationStatus Save(ProductModel productmodel)
+        
+        public OperationStatus Save(ProductModel model)
         {
             OperationStatus result = new OperationStatus();
             try
             {
-                if (productmodel == null)
+                if (model == null)
                     throw new Exception("Invalid Record");
 
-                Product product = productmodel.ProductModelToProductMapper();
+                Product product = model.ProductModelToProductMapper();
                 _POSDBContext.Products.Add(product);
                 result.Success = true;
             }
@@ -109,5 +91,26 @@ namespace Jasmine.POS.Data.Repository
 
             return result;
         }
+
+
+        public IList<ProductModel> GetByCategoryID(int categoryId)
+        {
+            List<ProductModel> productsmodel = new List<ProductModel>();
+            try
+            {
+                var _products = _POSDBContext.Products.
+                                 Where(p => p.ProductCategoryID == categoryId).ToList();
+                if (_products != null)
+                {
+                    productsmodel = _products.ProductsToProductsModelMapper();
+                }
+            }
+            catch (Exception)
+            {
+                //ToDo Log Error 
+            }
+            return productsmodel;
+        }
+
     }
 }

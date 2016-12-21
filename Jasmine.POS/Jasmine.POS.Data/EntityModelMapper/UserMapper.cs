@@ -48,7 +48,7 @@ namespace Jasmine.POS.Data.EntityModelMapper
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 RoleID = user.RoleID,
-                Role = user.Role.RoleToRoleModelMapper(), 
+                Role = user.Role !=null ? user.Role.RoleToRoleModelMapper() : null, 
                 TFN = user.TFN, 
                 mobile = user.mobile, 
                 address = user.address
@@ -110,7 +110,7 @@ namespace Jasmine.POS.Data.EntityModelMapper
                 FirstName = usermodel.FirstName,
                 LastName = usermodel.LastName,
                 RoleID = usermodel.RoleID,
-                Role = usermodel.Role.RoleModelToRoleMapper(),
+                Role = usermodel.Role != null ? usermodel.Role.RoleModelToRoleMapper() : null,
                 TFN = usermodel.TFN,
                 mobile = usermodel.mobile,
                 address = usermodel.address

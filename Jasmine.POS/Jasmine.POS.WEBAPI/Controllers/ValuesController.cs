@@ -8,19 +8,37 @@ namespace Jasmine.POS.WEBAPI.Controllers
     //[Authorize]
     public class ValuesController : ApiController
     {
-        private ProductServices productservice = new ProductServices();
-        private UserServices userservice = new UserServices();
+        private ServiceFactory services = new ServiceFactory();
         // GET api/values
         public IEnumerable<ProductModel> GetProducts()
         {
-            var products = productservice.GetAllProducts();
+            var products = services.productservice.GetAllProducts();
             return products;
         }
 
         public IEnumerable<UserModel> GetUsers()
         {
-            var users = userservice.GetAllUser();
+            var users = services.userservice.GetAllUser();
             return users;
+        }
+
+        public IEnumerable<UserModel> GetUser()
+        {
+            UserModel user = new UserModel()
+            {
+                UserName = "Jasmine",
+                FirstName = "Jasmine",
+                LastName = "Aung",
+            };
+
+            OperationStatus result = services.userservice.Save(user);
+            if (result.Success)
+            {
+                var users = services.userservice.GetAllUser();
+                return users;
+            }
+
+            return null; 
         }
 
         // GET api/values/5

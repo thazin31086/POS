@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Order]
 (
-	[OrderID] INT NOT NULL PRIMARY KEY, 
+	[OrderID] INT NOT NULL PRIMARY KEY IDENTITY, 
     [Customer Name] VARCHAR(250) NULL, 
     [OrderTypeID] INT NULL, 
     [CreatedDate] DATETIME NULL, 

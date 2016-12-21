@@ -6,16 +6,15 @@ using System.Linq;
 
 namespace Jasmine.POS.Data.Repository
 {
-    public class OrderRepository
+    public class OrderRepository :IRepository<OrderModel>
     {
         private readonly JasminePOSDBContext _POSDBContext;       
-        public OrderRepository()
+        public OrderRepository(JasminePOSDBContext POSDBContext)
         {
-            _POSDBContext = new JasminePOSDBContext();
-
+            _POSDBContext = POSDBContext ?? new JasminePOSDBContext();
         }       
 
-        public IList<OrderModel> GetAllOrders()
+        public IList<OrderModel> GetAll()
         {
             List<OrderModel> ordermodel = new List<OrderModel>();
             try
@@ -34,12 +33,12 @@ namespace Jasmine.POS.Data.Repository
             return ordermodel;
          
         }
-        public OrderModel GetOrderByOrderId(int orderId)
+        public OrderModel GetById(int Id)
         {
             OrderModel ordermodel = new OrderModel();
             try
             {
-                var _order = _POSDBContext.Orders.SingleOrDefault(o => o.OrderID == orderId);
+                var _order = _POSDBContext.Orders.SingleOrDefault(o => o.OrderID == Id);
                 if (_order != null)
                 {
                     ordermodel = _order.OrderToOrderModelMapper();
@@ -53,15 +52,15 @@ namespace Jasmine.POS.Data.Repository
 
         }
 
-        public OperationStatus Save(OrderModel ordermodel)
+        public OperationStatus Save(OrderModel model)
         {
             OperationStatus result = new OperationStatus();
             try
             {
-                if (ordermodel == null)
+                if (model == null)
                     throw new Exception("Invalid Record");
 
-                Order order = ordermodel.OrderModelToOrderMapper();
+                Order order = model.OrderModelToOrderMapper();
                 _POSDBContext.Orders.Add(order);
                 result.Success = true;
             }
@@ -74,12 +73,12 @@ namespace Jasmine.POS.Data.Repository
 
         }
 
-        public OperationStatus Delete(int orderId)
+        public OperationStatus Delete(int Id)
         {
             OperationStatus result = new OperationStatus();
             try
             {
-                var order = _POSDBContext.Orders.FirstOrDefault(x => x.OrderID == orderId);
+                var order = _POSDBContext.Orders.FirstOrDefault(x => x.OrderID == Id);
                 if (order == null)
                     throw new Exception("Record does not exist.");
 
@@ -95,3 +94,6 @@ namespace Jasmine.POS.Data.Repository
         }
     }
 }
+
+
+

@@ -6,15 +6,15 @@ using System.Linq;
 
 namespace Jasmine.POS.Data.Repository
 {
-    public class UserRepository 
+    public class UserRepository :IRepository<UserModel>
     {
         private readonly JasminePOSDBContext _POSDBContext;
-        public UserRepository()
+        public UserRepository(JasminePOSDBContext POSDBContext)
         {
-            _POSDBContext = new JasminePOSDBContext();
+           _POSDBContext = POSDBContext ?? new JasminePOSDBContext();
         }
 
-        public IList<UserModel> GetAllUser()
+        public IList<UserModel> GetAll()
         {
             List<UserModel> usersmodel = new List<UserModel>();
             try
@@ -34,12 +34,12 @@ namespace Jasmine.POS.Data.Repository
             return usersmodel;
         }
 
-        public UserModel GetUserByID(int userId)
+        public UserModel GetById(int Id)
         {
             UserModel usermodel = new UserModel();
             try
             {
-                var _user = _POSDBContext.Users.FirstOrDefault(u => u.Id == userId);
+                var _user = _POSDBContext.Users.FirstOrDefault(u => u.Id == Id);
                 if (_user != null)
                 {
                     usermodel = _user.UserToUserModelMapper();
@@ -60,16 +60,17 @@ namespace Jasmine.POS.Data.Repository
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public OperationStatus Save(UserModel usermodel)
+        public OperationStatus Save(UserModel model)
         {
             OperationStatus result = new OperationStatus();
             try
             {
-                if (usermodel == null)                
+                if (model == null)                
                     throw new Exception("Invalid Record");                                    
 
-                User user = usermodel.UserModelToUserMapper();                
-                _POSDBContext.Users.Add(user);
+                User user = model.UserModelToUserMapper();                
+                _POSDBContext.Users.Add(user);                
+                _POSDBContext.SaveChanges();
                 result.Success = true;
             }
             catch (Exception ex)
@@ -91,6 +92,7 @@ namespace Jasmine.POS.Data.Repository
                     throw new Exception("User Record does not exist.");                                    
 
                 _POSDBContext.Users.Remove(user);
+                _POSDBContext.SaveChanges();
                 result.Success = true;
             }
             catch (Exception ex)
